@@ -11,7 +11,3 @@
 *.lai
 *.la
 *.a
-
-# Backup Files
-*.*~
-

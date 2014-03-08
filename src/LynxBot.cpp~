@@ -1,8 +1,0 @@
-#include "LynxCore.h"
-
-int main( int argc, char *argv[] )
-{
-    LynxCore lynx;
-    lynx.run( );
-    return 0;
-}
