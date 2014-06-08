@@ -12,4 +12,5 @@ add_executable( ${APP_NAME}
 target_link_libraries( ${APP_NAME}
     # Add libraries here
     ${LIB_NAME}
+    ${SDL2_LIBRARIES}
 )

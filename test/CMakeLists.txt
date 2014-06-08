@@ -10,6 +10,7 @@ add_executable( AllTests
 target_link_libraries( AllTests
     ${LIB_NAME}
     ${GTEST_LIBRARIES}
+    ${SDL2_LIBRARIES}
     pthread
 )
 

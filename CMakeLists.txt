@@ -16,5 +16,9 @@ add_definitions( -std=c++0x )
 find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
+INCLUDE(FindPkgConfig)
+PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
+INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
+
 add_subdirectory( src )
 add_subdirectory( test )
