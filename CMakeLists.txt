@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 
 project( App )
 
+# Some non-standard CMake modules
+SET(CMAKE_MODULE_PATH ${App_SOURCE_DIR}/CMake)
+
 # Enable Tests for CMake
 include(CTest) 
 
@@ -11,10 +14,6 @@ SET(LIB_NAME ${APP_NAME}core)
 
 # Compiler Settings
 add_definitions( -std=c++0x )
-
-# Locate GTest
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
 
 add_subdirectory( src )
 add_subdirectory( test )

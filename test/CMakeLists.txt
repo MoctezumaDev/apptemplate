@@ -1,6 +1,12 @@
+set(CMAKE_PREFIX_PATH "${CMAKE_SOURCE_DIR}/dependencies/Build/Debug/gtest/")
+
 message( STATUS ${CMAKE_SOURCE_DIR} )
 
-include_directories( ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/include)
+message( STATUS ${CMAKE_PREFIX_PATH} )
+
+FIND_PACKAGE(GTest REQUIRED)
+
+include_directories( ${CMAKE_SOURCE_DIR}/src ${CMAKE_SOURCE_DIR}/include ${GTEST_INCLUDE_DIR})
 
 add_executable( AllTests
     AllTests.cpp

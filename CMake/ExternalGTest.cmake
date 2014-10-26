@@ -1,0 +1,27 @@
+# Build a local version
+INCLUDE(ExternalProject)
+
+SET(gtest_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/gtest)
+
+SET(gtest_CMAKE_ARGS
+    -DCMAKE_INSTALL_PREFIX:PATH=<INSTALL_DIR> 
+    -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+	-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+    -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
+    -DCMAKE_DEBUG_POSTFIX=d
+)
+
+ExternalProject_Add(gtest
+    PREFIX ${gtest_PREFIX}
+
+    DOWNLOAD_DIR ${APP_DEPS_DOWNLOAD_DIR}
+
+    URL https://googletest.googlecode.com/files/gtest-1.7.0.zip
+    URL_MD5 2D6EC8CCDF5C46B05BA54A9FD1D130D7
+	
+	PATCH_COMMAND ${CMAKE_COMMAND} -E copy_if_different ${AppDependencies_SOURCE_DIR}/../CMake/gtest.cmake <SOURCE_DIR>/CMakeLists.txt
+
+    INSTALL_DIR ${APP_DEPS_CORE_PREFIX}
+    CMAKE_ARGS ${gtest_CMAKE_ARGS}
+)
+
